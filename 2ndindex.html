@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>電子計算組織研究会(EDPS)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="電子計算組織研究会">
+
+    <link rel="stylesheet" href="gallarey.css">
+    <link rel="script" href="gallarey.js">
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <!-- ScrollTrigger Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="Menubar.css">
+    <style>
+        /* ハンバーガーメニューのスタイル */
+        #menu-toggle {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            cursor: pointer;
+        }
+        #menu-toggle div {
+            width: 30px;
+            height: 5px;
+            background: #ffffff;
+            margin: 6px 0;
+            transition: 0.3s;
+            transform: translateY(10px);
+        }
+        #menu-toggle.open {
+            transform: translateX(200px)  ; /* 開いているときに右に移動 */
+        }
+        /* サイドバーの基本スタイル */
+        #nav-bar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: #333;
+            color: #fff;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 999;
+        }
+        #nav-bar.active {
+            transform: translateX(0);
+        }
+        .unko {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-container">
+          <!-- ギャラリー -->
+          <div class="slider">
+            <button class="slider--btn slider--btn__prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6" />
+                </svg>
+            </button>
+        
+            <div class="slides__wrapper">
+                <div class="slides">
+                    <!-- slide 1 -->
+                    <div class="slide" data-current>
+                        <div class="slide__inner">
+                            <div class="slide--image__wrapper">
+                                <img class="slide--image" src="img/1.jpg" alt="Image 1" />
+                                <div class="slide-info__inner">
+                                    <div class="slide-info--text__wrapper">
+                                        <div data-title class="slide-info--text">
+                                            <span>　　　　main console seat</span>
+                                        </div>
+                                        <div data-subtitle class="slide-info--text">
+                                            <span>　　Main room</span>
+                                        </div>
+                                        <div data-description class="slide-info--text">
+                                            <span>　　　It's like Eva's command room</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide__bg" style="--bg: url(img/0.png); --dir: 0" data-current></div>
+        
+                    <!-- slide 2 -->
+                    <div class="slide" data-next>
+                        <div class="slide__inner">
+                            <div class="slide--image__wrapper">
+                                <img class="slide--image" src="
+        https://devloop01.github.io/voyage-slider/images/mach
