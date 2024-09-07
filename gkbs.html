@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+ <title>EDPS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="指定暴力団電子計算組織研究会">
+
+    <link rel="stylesheet" href="gallarey.css">
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <!-- ScrollTrigger Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="Menubar.css">
+</head>
+
+<body>
+<!--ここに入れろ-->
+<div>
+
+<style>
+   
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box }
+body {
+  padding: 2rem;
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #060606;
+}
+ul{
+  width: min(100%, 60rem);
+  overflow: hidden;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 4rem);
+  list-style: none;
+  perspective: 1000px;
+  display: grid;
+  row-gap: 0.5rem;
+}
+ul li.card{
+  position: relative;
+  padding-block: 1.5rem;
+  padding-inline: 2rem;
+  background-color: var(--bg-color);
+  background-image: linear-gradient(to right, rgb(0 0 0 / .15), transparent);
+  transform-style: preserve-3d;
+  color: var(--color);
+  
+  display: grid;
+  grid-template: 'icon' 'title' 'content';
+  row-gap: 0.5rem;
+  column-gap: 2rem;
+}
+ul li.card::before, ul li.card::after {
+  --side-rotate: 60deg;
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transform-origin: calc(50% - (50% * var(--ry))) 50%  ;
+  transform: rotateY(calc(var(--side-rotate) * var(--ry)));
+  background-color: inherit;
+  background-image: linear-gradient(calc(90deg * var(--ry)), rgb(0 0 0 / .25), rgb(0 0 0 / .5));  
+}
+ul li.card::before {--ry: -1; right: 100% }
+ul li.card::after {--ry: 1; left: 100% }
+
+ul li.card .icon {
+  grid-area: icon;
+  display: grid;
+  place-items: center;
+}
+ul li.card .icon i {
+  font-size: 2rem;
+}
+ul li.card .title{
+  grid-area: title;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+}
+ul li.card .content{
+  grid-area: content;
+}
+
+@media (min-width: 30rem){
+  ul li.card {
+    grid-template: 'icon title' 'icon content';
+    text-align: left;
+  }
+  ul li.card .title { text-align: left }
+}
+    </style>
+
+    <ul>
+    <li class="card" style="--color:#ececec; --bg-color:#E98B43">
+      <div class="icon"><i class="fa-solid fa-house"></i></div>
+      <div class="title">電子計算組織研究会・EDPSとは</div>
+      <div class="content">EDPSではハードからソフト、つまり電子工作などのものづくりからプログラミングまで幅広く研究開発を行い、技術の向上及び発展を目標とする団体です。<br>
+      それに加え、最近始動したバイオケミカル部門ではミドリムシの養殖やマテリアル技術などの研究を電子工学応用し行っております。<br>
+     様々なプロセスを駆使し、新しいモノづくりや研究を行うEDPSでは、「学生証を用いた鍵の開錠システムの後付け装置の開発及び設置、PETから3Dプリンターフィラメントの生成機の開発、ヘッドホンやスピーカーなどのガジェットの修理、ゲーム開発、Minecraftサーバーの運営、提携ベンチャーとのロケット開発」など様々な知見をかき集め手広く深く日々活動しています。</div>
+    </li>
+    <li class="card" style="--color:#ececec; --bg-color:#C23D2A">
+      <div class="icon"><i class="fa-solid fa-gear"></i></div>
+      <div class="title">EDPSに入ると？</div>
+      <div class="content">EDPSに入ると自分の「知りたい・やりたい・作りたい」がすべて叶います<br>物理数学情報学などの工学的知識だけでなく、生物化学等の細かい分野、それに加えて様々なギークな情報を持った個性豊かなメンバーが多数在籍しています！<br>是非皆様の「知りたい・やりたい・作りたい」を実現するためにもEDPSに入ってみてはいかがでしょうか？</div>
+    </li>
+    <li class="card" style="--color:#ececec; --bg-color:#842C2A">
+      <div class="icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+      <div class="title">Coming soon…</div>
+      <div class="content">…もしかすると、あのメカニックオタクの天才で最強なMarvelのヒーローがここEDPSから本当に誕生するのかも… </div>
+    </li>
+    <li class="card" style="--color:#ececec; --bg-color:#022F46">
+      <div class="icon"><i class="fa-solid fa-chart-column"></i></i></div>
+      <div class="title">代表者名</div>
+      <div class="content">猪上 勝 </div>
+    </li>
+    <li class="card" style="--color:#ececec; --bg-color:#032437">
+      <div class="icon"><i class="fa-solid fa-circle-star"></i></div>
+      <div class="title">団体人数</div>
+      <div class="content">40名 </div>
+    </li>
+    <li class="card" style="--color:#ececec; --bg-color:#032437">
+      <div class="icon"><i class="fa-solid fa-circle-star"></i></div>
+      <div class="title">提携団体</div>
+      <div class="content">Samuraitech:ガジェットやハードウェアから宇宙開発等を手掛けるベンチャー<br>Ninja:ゲーム開発及び運営・ゲームエンジンなどのソフトウェア開発ベンチャー
+        <br>ストリート部：日常から非日常のフロアに沸かすストリートな部活
+      </div>
+    </li>
+    </ul>
+
+</div>
+
+
+
+
+
+    <!---menubar-->
+    <div Class="unko">
+        <div id="nav-bar">
+            <input id="nav-toggle" type="checkbox" checked="checked"/>
+        
+            <div id="nav-header"class="clickable-div" id="myDiv0"><a id="nav-title" href="#">E<i class="fab fa-codepen"></i>DPS</a>
+                <label for="nav-toggle"><span id="navtoggle-burger"></span></label>
+                <hr/>
+             
+              </div>
+            <div id="nav-content">
+              <div class="nav-button" class="clickable-div" id="myDiv1"><i class="fas fa-palette"></i><span>1.学部紹介</span>
+               <script>
+                document.getElementById('myDiv1').addEventListener('click', function() {
+                    window.location.href = 'gkbs.html';
+                });
+                 </script>
+              </div>
+              <div class="nav-button" class="clickable-div" id="myDiv2"><i class="fas fa-images"></i><span>2.年間スケジュール</span>
+                <script>
+                  document.getElementById('myDiv2').addEventListener('click', function() {
+                      window.location.href = 'nksk.html';
+                  });
+                </script>
+              </div>
+              <div class="nav-button" class="clickable-div" id="myDiv3"><i class="fas fa-thumbtack"></i><span>3.アクセス</span>
+                <script>
+                  document.getElementById('myDiv3').addEventListener('click', function() {
+                      window.location.href = 'acces.html';
+                  });
+                </script>
+              </div>
+              <hr/>
+              <div class="nav-button" class="clickable-div" id="myDiv4"><i class="fas fa-heart"></i><span>4.プロジェクト紹介</span>
+                <script>
+                  document.getElementById('myDiv4').addEventListener('click', function() {
+                      window.location.href = 'project.html';
+                  });
+                </script>
+              </div>
+              <div class="nav-button" class="clickable-div" id="myDiv5"><i class="fas fa-heart"></i><span>5.NEWS</span>
+                <script>
+                  document.getElementById('myDiv5').addEventListener('click', function() {
+                      window.location.href = 'News.html';
+                  });
+                </script>
+              </div>
+              <div class="nav-button" class="clickable-div" id="myDiv6"><i class="fas fa-heart"></i><span>6.作品ラインナップ</span>
+                <script>
+                  document.getElementById('myDiv6').addEventListener('click', function() {
+                      window.location.href = 'linenup.html';
+                  });
+                </script>
+              </div>
+              <div class="nav-button" class="clickable-div" id="myDiv7"><i class="fas fa-heart"></i><span>Coming soon…</span>
+                <script>
+                  document.getElementById('myDiv7').addEventListener('click', function() {
+                      window.location.href = 'coming.html';
+                  });
+                </script>
+              </div>
+              <hr/>
+              <div class="nav-button" class="clickable-div" id="home"><i class="fas fa-heart"></i><span>HOME</span>
+                <script>
+                  document.getElementById('home').addEventListener('click', function() {
+                      window.location.href = '2ndindex.html';
+                  });
+                </script>
+              </div>
+
+              <div id="nav-highlight"></div>
+            </div>
+            <input id="nav-footer-toggle" type="checkbox"/>
+            <div id="nav-footer">
+              <div id="nav-footer-heading">
+                <label for="nav-footer-toggle"><i class="fas fa-caret-up"></i></label>
+              </div>
+              <div id="nav-footer-content">
+              </div>
+            </div>
+          </div>   
+          <style>
+                   .unko{position: fixed}
+                    
+            </style>
+    </div>
+
+</body>
+
+<footer>
+    <!--ここに入れろ-->
+
+</footer>
+
+
+</html>
