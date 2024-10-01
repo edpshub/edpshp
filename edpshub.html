@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>電子計算組織研究会(EDPS)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="電子計算組織研究会">
+  
+    <link rel="stylesheet" href="gallarey.css">
+    <link rel="script" href="gallarey.js">
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <!-- ScrollTrigger Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="Menubar.css">
+    <style>
+        /* ハンバーガーメニューのスタイル */
+        #menu-toggle {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            cursor: pointer;
+        }
+        #menu-toggle div {
+            width: 30px;
+            height: 5px;
+            background: #ffffff;
+            margin: 6px 0;
+            transition: 0.3s;
+            transform: translateY(10px);
+        }
+        #menu-toggle.open {
+            transform: translateX(200px)  ; /* 開いているときに右に移動 */
+        }
+        /* サイドバーの基本スタイル */
+        #nav-bar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: #333;
+            color: #fff;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 999;
+        }
+        #nav-bar.active {
+            transform: translateX(0);
+        }
+        .unko {
+            position: relative;
+        }
+    </style>
+  </head>
+
+<body>
+<!--ここに入れろ-->
+
+
+
+
+
+
+
+
+    <!---menubar-->
+    <div class="unko">
+        <div id="nav-bar">
+            <div id="nav-header" class="clickable-div">
+                <a id="nav-title" href="2ndindex.html">E<i class="fab fa-codepen"></i>DPS</a>
+                <hr/>
+            </div>
+            <div id="nav-content">
+                <div class="nav-button clickable-div" id="gkbs">
+                    <i class="fas fa-palette"></i><span>1.活動紹介</span>
+                </div>
+                <div class="nav-button clickable-div" id="nksk">
+                    <i class="fas fa-images"></i><span>2.企画スケジュール</span>
+                </div>
+                <div class="nav-button clickable-div" id="acces">
+                    <i class="fas fa-thumbtack"></i><span>3.アクセス</span>
+                </div>
+                <hr/>
+                <div class="nav-button clickable-div" id="project">
+                    <i class="fas fa-heart"></i><span>4.プロジェクト紹介</span>
+                </div>
+                <div class="nav-button clickable-div" id="Timeline">
+                    <i class="fas fa-heart"></i><span>5.タイムライン</span>
+                </div>
+                <div class="nav-button clickable-div" id="linenup">
+                    <i class="fas fa-heart"></i><span>6.ラインナップ</span>
+                </div>
+                <div class="nav-button clickable-div" id="edpshub">
+                    <i class="fas fa-heart"></i><span>7.EDPS HUB</span>
+                </div>
+                <hr/>
+                <div class="nav-button clickable-div" id="2ndindex">
+                    <i class="fas fa-heart"></i><span>HOME</span>
+                </div>
+                <div id="nav-highlight"></div>
+            </div>
+            <input id="nav-footer-toggle" type="checkbox"/>
+            <div id="nav-footer">
+                <div id="nav-footer-heading">
+                    <label for="nav-footer-toggle"><i class="fas fa-caret-up"></i></label>
+                </div>
+                <div id="nav-footer-content">  
+                </div>
+            </div>
+        </div>
+      </div>
+
+</body>
+
+<footer>
+    <!--ここに入れろ-->
+
+</footer>
+
+
+</html>
