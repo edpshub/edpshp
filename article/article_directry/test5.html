@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイトル</title>
+    <meta name="thumbnail" content="{{ thumbnail }}"> <!-- サムネイル画像のURL -->
+    <meta name="subtitle" content="これはテスト"> <!-- サブタイトル -->
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .article-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .article-title {
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+        .article-subtitle {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .article-thumbnail {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .article-content {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-link:hover {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>記事詳細</h1>
+    </header>
+    <div class="article-container">
+        <!-- 記事サムネイル -->
+        <img src="{{ thumbnail }}" alt="{{ title }}" class="article-thumbnail">  <!-- ここでサムネイルを表示 -->
+
+        <!-- 記事タイトル -->
+        <h2 class="article-title">{{ title }}</h2> <!-- ここで記事のタイトルを表示 -->
+
+        <!-- 記事サブタイトル -->
+        <p class="article-subtitle">{{ subtitle }}</p> <!-- ここで記事のサブタイトルを表示 -->
+
+        <!-- 記事コンテンツ -->
+        <div class="article-content">
+            ここに記事の内容を表示します。記事の内容が長くなる場合、こちらにテキストを追加します。
+        </div>
+
+        <!-- 戻るリンク -->
+        <a href="/article.html" class="back-link">記事一覧に戻る</a>
+    </div>
+    <!-- /.article-container -->
+</body>
+</html>
