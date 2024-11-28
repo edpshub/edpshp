@@ -9,6 +9,7 @@
   
     <link rel="stylesheet" href="gallarey.css">
     <link rel="script" href="gallarey.js">
+    
     <!-- GSAP Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <!-- ScrollTrigger Plugin -->
@@ -16,6 +17,12 @@
     <link rel="stylesheet" href="Menubar.css">
     <style>
         /* ハンバーガーメニューのスタイル */
+        header img {
+        max-width: 20%; /* 画像の最大幅を指定（必要に応じて調整） */
+        height: auto; /* 画像の高さを自動で調整 */
+        display: block; /* 画像をブロック要素として扱う */
+        margin: 0 auto; /* 水平方向に中央揃え */
+        }
         #menu-toggle {
             position: fixed;
             top: 10px;
@@ -58,12 +65,12 @@
 
 <body>
 <!--ここに入れろ-->
-<img src="img\EDPS-2024-11-27.png">
-
-
-
-
-
+<header>
+    <img src="imgarticle\EDPS-2024-11-27.png" alt="EDPS Logo">
+</header>
+<div class="articlebord">
+    <!--ここにきじがついかされます-->
+</div>
 
 
     <!---menubar-->
