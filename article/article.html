@@ -9,6 +9,7 @@
   
     <link rel="stylesheet" href="gallarey.css">
     <link rel="script" href="gallarey.js">
+    
     <!-- GSAP Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <!-- ScrollTrigger Plugin -->
@@ -16,6 +17,54 @@
     <link rel="stylesheet" href="Menubar.css">
     <style>
         /* ハンバーガーメニューのスタイル */
+        /* カード全体のスタイル */
+.article-card {
+    width: 300px; /* カードの幅 */
+    margin: 15px; /* 外側の余白 */
+    border: 1px solid #ddd; /* 枠線 */
+    border-radius: 8px; /* 角丸 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影 */
+    overflow: hidden; /* 子要素がはみ出さないようにする */
+    background-color: #fff; /* 背景色 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* ホバー時のアニメーション */
+}
+
+.article-card:hover {
+    transform: translateY(-5px); /* ホバー時に少し上に持ち上げる */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* ホバー時の影 */
+}
+
+/* カード内リンクのスタイル */
+.article-card a {
+    text-decoration: none; /* リンクの下線を削除 */
+    color: inherit; /* テキストの色を継承 */
+    display: block; /* 子要素をブロック要素として扱う */
+}
+
+/* サムネイル画像のスタイル */
+.card-thumbnail {
+    width: 100%; /* カードの幅いっぱいに画像を表示 */
+    height: 180px; /* 固定の高さを設定 */
+    object-fit: cover; /* 画像の切り抜き方法を調整 */
+    border-bottom: 1px solid #ddd; /* 画像の下に線を追加 */
+}
+
+/* タイトルのスタイル */
+.card-title {
+    font-size: 18px; /* タイトルのフォントサイズ */
+    font-weight: bold; /* 太字 */
+    color: #333; /* タイトルの色 */
+    margin: 15px 10px 5px; /* 上下左右の余白 */
+}
+
+/* サブタイトルのスタイル */
+.card-subtitle {
+    font-size: 14px; /* サブタイトルのフォントサイズ */
+    color: #666; /* サブタイトルの色 */
+    margin: 0 10px 15px; /* 上下左右の余白 */
+    line-height: 1.5; /* 行間 */
+}
+
         header img {
         max-width: 20%; /* 画像の最大幅を指定（必要に応じて調整） */
         height: auto; /* 画像の高さを自動で調整 */
@@ -67,36 +116,9 @@
 <header>
     <img src="imgarticle\EDPS-2024-11-27.png" alt="EDPS Logo">
 </header>
-   <div class="article-container">
-        <!-- CARD_PLACEHOLDER -->
-    
-    <div class="article-card">
-        <a href="article/article_directry/test4.html">
-            <img src="default-thumbnail.jpg" alt="{{ title }}" class="card-thumbnail">
-            <h3 class="card-title">{{ title }}</h3>
-            <p class="card-subtitle">No Subtitle</p>
-        </a>
-    </div>
-    
-
-    <div class="article-card">
-        <a href="article/article_directry/test5.html">
-            <img src="{{ thumbnail }}" alt="タイトル" class="card-thumbnail">
-            <h3 class="card-title">タイトル</h3>
-            <p class="card-subtitle">これはテスト</p>
-        </a>
-    </div>
-    
-
-    <div class="article-card">
-        <a href="/article/article_directry/test6.html">
-            <img src="{{ thumbnail }}" alt="タイトル" class="card-thumbnail">
-            <h3 class="card-title">タイトル</h3>
-            <p class="card-subtitle">これはテスト</p>
-        </a>
-    </div>
-    
-</div><!-- /.article-container -->
+<div class="articlebord">
+    <!--ここにきじがついかされます-->
+</div>
 
 
     <!---menubar-->
