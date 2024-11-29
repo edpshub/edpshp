@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【ひとくちプログラミング第一回】</title>
+    <meta name="thumbnail" content="image.png"> <!-- サムネイル画像のURL -->
+    <meta name="subtitle" content="階層図から自動でファイルやフォルダを作成してみた！"> <!-- サブタイトル -->
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .article-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .article-title {
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+        .article-subtitle {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .article-thumbnail {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .article-content {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-link:hover {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>記事詳細</h1>
+    </header>
+    <div class="article-container">
+        <!-- 記事サムネイル -->
+        <img src="image.png" alt="【ひとくちプログラミング第一回】" class="article-thumbnail">  <!-- ここでサムネイルを表示 -->
+
+        <!-- 記事タイトル -->
+        <h2 class="article-title">【ひとくちプログラミング第一回】</h2> <!-- ここで記事のタイトルを表示 -->
+
+        <!-- 記事サブタイトル -->
+        <p class="article-subtitle">階層図から自動でファイルやフォルダを作成してみた！</p> <!-- ここで記事のサブタイトルを表示 -->
+
+        <!-- 記事コンテンツ -->
+        <div class="article-content">
+            <h3>「ヒエラルキーは決まっている。
+                でもひとつずつ作るのは、面倒くさい！」　そんな人のためのプログラミングです！<br>
+                ☆しくみ☆<br>
+                Jsonに階層を記述し、Pythonでそれを
+                読み込んでファイルやフォルダをその通り
+                に自動生成します。
+                ①階層図を用意します。<br>
+                ②階層図をJsonに書き換えます。<br>
+                ChatGPTに送り付ければJson形式に変換してくれますが。一応解説します。
+                各フォルダは　“フォルダ名”：｛｝　<br>
+                各ファイルは　“ファイル名.拡張子”：“※必要であればそのファイルの説明”<br><br>
+
+                ファイルやフォルダをフォルダの中に入れる場合は以下の通りで、複数格納する場合「，」で区切ります。<br><br>
+
+                "フォルダ1": {<br>
+                            "フォルダ2": {<br>
+                                "ファイル１": "Java class for the main mod functionality",<br>
+                                "ファイル2": "Java class for registering blocks",<br>
+                                "ファイル3": "Java class defining crop block behavior"<br>
+                            }<br>
+                            }<br>
+
+                ちなみに、階層図のファイル名は何でも構いません。今回はexample_hierarchy.jsonとしておきます。<br>
+                ③Pythonファイルを作成します。<br>
+                example_hierarchy.pyをexample_hierarchy.jsonと同じディレクトリに作成します。<br>
+              　重要なのはまず二つのモジュール。「import osとimport json」osはPC上のファイルやフォルダを操作するために必要で、Jsonファイルを読み書きするのに必要です。<br>
+              ④example_hierarchy.pyの中身<br><br>
+                create_files_from_hierarchy関数：再帰（繰り返し自身を呼び出す）を使って、JSONデータに基づいてフォルダやファイルを作成する機能を持っています。<br>
+
+                引数：hierarchy: JSONから読み込んだデータ（辞書形式）。<br>
+                parent_path: 親フォルダのパス。<br>
+
+                処理内容：hierarchy.items() を使って、JSONデータのキーと値を順番に処理します。<br>
+                os.path.join(parent_path, key) で新しいパスを作成します。<br>
+
+                フォルダとファイルの生成：isinstance(value, dict)<br>
+                現在処理している値が辞書形式（フォルダに相当する）かを確認します。<br><br>
+                os.makedirs(new_path, exist_ok=True) で新しいフォルダを作成します。exist_ok=True は、フォルダがすでに存在してもエラーを出さないようにする設定です。その後、再帰的に create_files_from_hierarchy を呼び出し、次の階層を処理します。
+                with open(new_path, 'w') で新しい空のファイルを作成します。<br>
+                JSONファイルの読み込み：json.load(file)<br>
+                example_hierarchy.json を開き、中身をPythonの辞書形式に変換します。この辞書データを hierarchy_data に格納します。<br>
+                <pre>
+                    <code>
+                        // これはサンプルのJson階層図です。
+                        {
+                            "SRC": {
+                              "MAIN": {
+                                "JAVA": {
+                                  "COM": {
+                                    "EXAMPLE": {
+                                      "MYMOD": {
+                                        "MYMOD.JAVA": "Java class for the main mod functionality",
+                                        "MODBLOCKS.JAVA": "Java class for registering blocks",
+                                        "MYCROPBLOCK.JAVA": "Java class defining crop block behavior",
+                                        "MYCROPITEM.JAVA": "Java class defining crop items",
+                                        "MODITEMS.JAVA": "Java class for registering items"
+                                      }
+                                    }
+                                  }
+                                },
+                                "RESOURCES": {
+                                  "ASSETS": {
+                                    "MY_MOD": {
+                                      "BLOCKSTATES": {
+                                        "MY_CROP_BLOCK.JSON": "Block states file for crop block (e.g., growth stages)"
+                                      },
+                                      "LANG": {
+                                        "EN_US.JSON": "Localization file for mod UI names and descriptions"
+                                      },
+                                      "MODELS": {
+                                        "BLOCK": {
+                                          "MY_CROP_BLOCK_STAGE0.JSON": "Model information for crop block stage 0",
+                                          "MY_CROP_BLOCK_STAGE1.JSON": "Model information for crop block stage 1",
+                                          "MY_CROP_BLOCK_STAGE2.JSON": "Model information for crop block stage 2",
+                                          "MY_CROP_BLOCK_STAGE3.JSON": "Model information for crop block stage 3",
+                                          "MY_CROP_BLOCK_STAGE4.JSON": "Model information for crop block stage 4",
+                                          "MY_CROP_BLOCK_STAGE5.JSON": "Model information for crop block stage 5",
+                                          "MY_CROP_BLOCK_STAGE6.JSON": "Model information for crop block stage 6",
+                                          "MY_CROP_BLOCK_STAGE7.JSON": "Model information for crop block stage 7"
+                                        },
+                                        "ITEM": {
+                                          "MY_CROP_SEEDS.JSON": "Model information for crop seeds",
+                                          "MY_CROP_ITEM.JSON": "Model information for harvested crop item"
+                                        }
+                                      },
+                                      "TEXTURES": {
+                                        "BLOCK": {
+                                          "MY_CROP_BLOCK_STAGE0.PNG": "Texture for crop block stage 0",
+                                          "MY_CROP_BLOCK_STAGE1.PNG": "Texture for crop block stage 1",
+                                          "MY_CROP_BLOCK_STAGE2.PNG": "Texture for crop block stage 2",
+                                          "MY_CROP_BLOCK_STAGE3.PNG": "Texture for crop block stage 3",
+                                          "MY_CROP_BLOCK_STAGE4.PNG": "Texture for crop block stage 4",
+                                          "MY_CROP_BLOCK_STAGE5.PNG": "Texture for crop block stage 5",
+                                          "MY_CROP_BLOCK_STAGE6.PNG": "Texture for crop block stage 6",
+                                          "MY_CROP_BLOCK_STAGE7.PNG": "Texture for crop block stage 7"
+                                        },
+                                        "ITEM": {
+                                          "MY_CROP_SEEDS.PNG": "Texture for crop seeds",
+                                          "MY_CROP_ITEM.PNG": "Texture for harvested crop item"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "LOOT_TABLES": {
+                                    "BLOCKS": {
+                                      "MY_CROP_BLOCK.JSON": "Loot table for crop block drops"
+                                    }
+                                  },
+                                  "TAGS": {
+                                    "ITEMS": {
+                                      "SEEDS.JSON": "Tag for crop seeds"
+                                    }
+                                  },
+                                  "ADVANCEMENTS": {
+                                    "HARVEST_MY_CROP.JSON": "Advancement for harvesting crop"
+                                  },
+                                  "RECIPES": {
+                                    "MY_CROP_ITEM_CRAFT.JSON": "Crafting recipe for crop item"
+                                  },
+                                  "META-INF": {
+                                    "MODS.TOML": "Meta information for the mod"
+                                  }
+                                }
+                              }
+                            },
+                            "BUILD.GRADLE": "Gradle build configuration file",
+                            "SETTINGS.GRADLE": "Basic Gradle settings file"
+                          }
+                          
+                        
+                        
+                    </code>
+                </pre>
+                <pre>
+                <code>
+                // これはサンプルのPythonコードです。
+                import os
+                import json
+                
+                # JSONファイルを読み込み
+                def create_files_from_hierarchy(hierarchy, parent_path):
+                    for key, value in hierarchy.items():
+                        new_path = os.path.join(parent_path, key)
+                
+                        # ディレクトリを作成
+                        if isinstance(value, dict):
+                            os.makedirs(new_path, exist_ok=True)
+                            # 再帰的にディレクトリとファイルを作成
+                            create_files_from_hierarchy(value, new_path)
+                        else:
+                            # 空のファイルを作成
+                            with open(new_path, 'w') as file:
+                                pass
+                
+                # JSONファイルを読み込み
+                with open('example_hierarchy.json', 'r') as file:
+                    hierarchy_data = json.load(file)
+                
+                # ファイル生成の開始
+                create_files_from_hierarchy(hierarchy_data, 'output')
+                
+                </code>
+                </pre>
+            </h3>
+        </div>
+
+        <!-- 戻るリンク -->
+        <a href="/article/article.html" class="back-link">記事一覧に戻る</a>
+    </div>
+    <!-- /.article-container -->
+</body>
+</html>
