@@ -16,60 +16,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <link rel="stylesheet" href="Menubar.css">
     <style>
-        /* ハンバーガーメニューのスタイル */
-        /* カード全体のスタイル */
-.article-card {
-    width: 300px; /* カードの幅 */
-    margin: 15px; /* 外側の余白 */
-    border: 1px solid #ddd; /* 枠線 */
-    border-radius: 8px; /* 角丸 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影 */
-    overflow: hidden; /* 子要素がはみ出さないようにする */
-    background-color: #fff; /* 背景色 */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* ホバー時のアニメーション */
-}
-
-.article-card:hover {
-    transform: translateY(-5px); /* ホバー時に少し上に持ち上げる */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* ホバー時の影 */
-}
-
-/* カード内リンクのスタイル */
-.article-card a {
-    text-decoration: none; /* リンクの下線を削除 */
-    color: inherit; /* テキストの色を継承 */
-    display: block; /* 子要素をブロック要素として扱う */
-}
-
-/* サムネイル画像のスタイル */
-.card-thumbnail {
-    width: 100%; /* カードの幅いっぱいに画像を表示 */
-    height: 180px; /* 固定の高さを設定 */
-    object-fit: cover; /* 画像の切り抜き方法を調整 */
-    border-bottom: 1px solid #ddd; /* 画像の下に線を追加 */
-}
-
-/* タイトルのスタイル */
-.card-title {
-    font-size: 18px; /* タイトルのフォントサイズ */
-    font-weight: bold; /* 太字 */
-    color: #333; /* タイトルの色 */
-    margin: 15px 10px 5px; /* 上下左右の余白 */
-}
-
-/* サブタイトルのスタイル */
-.card-subtitle {
-    font-size: 14px; /* サブタイトルのフォントサイズ */
-    color: #666; /* サブタイトルの色 */
-    margin: 0 10px 15px; /* 上下左右の余白 */
-    line-height: 1.5; /* 行間 */
-}
-
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            overflow-y: auto;
+            background-color: #060606;
+            color: #fff;
+        }
+        header {
+            text-align: center;
+            padding: 1rem 0;
+        }
         header img {
-        max-width: 20%; /* 画像の最大幅を指定（必要に応じて調整） */
-        height: auto; /* 画像の高さを自動で調整 */
-        display: block; /* 画像をブロック要素として扱う */
-        margin: 0 auto; /* 水平方向に中央揃え */
+            max-width: 20%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
         #menu-toggle {
             position: fixed;
@@ -84,12 +50,11 @@
             background: #ffffff;
             margin: 6px 0;
             transition: 0.3s;
-            transform: translateY(10px);
+            transform: translateY(0);
         }
         #menu-toggle.open {
-            transform: translateX(200px)  ; /* 開いているときに右に移動 */
+            transform: translateX(200px);
         }
-        /* サイドバーの基本スタイル */
         #nav-bar {
             position: fixed;
             left: 0;
@@ -108,59 +73,100 @@
         .unko {
             position: relative;
         }
+        .articlebord {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .article-card {
+            width: 300px;
+            margin: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background-color: #fff;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .article-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .card-thumbnail {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 15px 10px 5px;
+        }
+        .card-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin: 0 10px 15px;
+            line-height: 1.5;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9rem;
+        }
     </style>
-  </head>
+</head>
 
 <body>
-<!--ここに入れろ-->
-<header>
-    <img src="imgarticle\EDPS-2024-11-27.png" alt="EDPS Logo">
-</header>
-<div class="articlebord">
-    <!--ここにきじがついかされます-->
-    
+    <header>
+        <img src="imgarticle\EDPS-2024-11-27.png" alt="EDPS Logo">
+    </header>
 
-    <div class="article-card">
-        <a href="/article/article_directry/test10.html">
-            <img src="image.png" alt="タイトル" class="card-thumbnail">
-            <h3 class="card-title">タイトル</h3>
-            <p class="card-subtitle">サブタイトル</p>
-        </a>
-    </div>
-    
-
-    <div class="article-card">
-        <a href="/article/article_directry/article1.html">
-            <img src="image.png" alt="【ひとくちプログラミング第一回】" class="card-thumbnail">
-            <h3 class="card-title">【ひとくちプログラミング第一回】</h3>
-            <p class="card-subtitle">階層図から自動でファイルやフォルダを作成してみた！</p>
-        </a>
-    </div>
-    
-
-    <div class="article-card">
-        <a href="/article/article_directry/temp.html">
-            <img src="image.png" alt="タイトル" class="card-thumbnail">
-            <h3 class="card-title">タイトル</h3>
-            <p class="card-subtitle">これはテスト</p>
-        </a>
-    </div>
-    
-</div><!-- /.article-container -->
-
-
-    <!---menubar-->
     <div id="menu-toggle">
         <div></div>
         <div></div>
         <div></div>
     </div>
 
+    <div class="articlebord">
+        <div class="article-card">
+            <a href="/article/article_directry/test10.html">
+                <img src="image.png" alt="タイトル" class="card-thumbnail">
+                <h3 class="card-title">タイトル</h3>
+                <p class="card-subtitle">サブタイトル</p>
+            </a>
+        </div>
+    
+        <div class="article-card">
+            <a href="/article/article_directry/article1.html">
+                <img src="image.png" alt="【ひとくちプログラミング第一回】" class="card-thumbnail">
+                <h3 class="card-title">【ひとくちプログラミング第一回】</h3>
+                <p class="card-subtitle">階層図から自動でファイルやフォルダを作成してみた！</p>
+            </a>
+        </div>
+    
+        <div class="article-card">
+            <a href="/article/article_directry/temp.html">
+                <img src="image.png" alt="新大学生向け！おススメノートパソコン！" class="card-thumbnail">
+                <h3 class="card-title">新大学生向け！おススメノートパソコン！</h3>
+                <p class="card-subtitle">充電器も紹介！</p>
+            </a>
+        </div>
+    </div>
+
     <!-- サイドバー -->
     <div class="unko">
         <div id="nav-bar">
             <div id="nav-header" class="clickable-div">
-                <a id="nav-title" href="2ndindex.html">E<i class="fab fa-codepen"></i>DPS</a>
+                <a id="nav-title" href="../2ndindex.html">E<i class="fab fa-codepen"></i>DPS</a>
                 <hr/>
             </div>
             <div id="nav-content">
@@ -203,8 +209,6 @@
         </div>
     </div>
 
-  
-    <!-- JavaScript -->
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const navBar = document.getElementById('nav-bar');
@@ -218,18 +222,16 @@
             button.addEventListener('click', () => {
                 const target = button.id;
                 if (target) {
-                    window.location.href = target + '.html';
+                    // 現在のディレクトリ(article/)から1つ上のディレクトリに移動
+                    window.location.href = `../${target}.html`;
                 }
             });
         });
     </script>
-
 </body>
 
 <footer>
-    <!--ここに入れろ-->
-
+    © 2025 電子計算組織研究会 (EDPS). All Rights Reserved.
 </footer>
-
 
 </html>

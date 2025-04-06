@@ -7,145 +7,194 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="電子計算組織研究会">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="gallarey.css">
-  <link rel="script" href="gallarey.js">
-  <!-- GSAP Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-  <!-- ScrollTrigger Plugin -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
   <link rel="stylesheet" href="Menubar.css">
+
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+
   <style>
-      /* ハンバーガーメニューのスタイル */
-      #menu-toggle {
-          position: fixed;
-          top: 10px;
-          left: 10px;
-          z-index: 1000;
-          cursor: pointer;
-      }
-      #menu-toggle div {
-          width: 30px;
-          height: 5px;
-          background: #ffffff;
-          margin: 6px 0;
-          transition: 0.3s;
-          transform: translateY(10px);
-      }
-      #menu-toggle.open {
-          transform: translateX(200px)  ; /* 開いているときに右に移動 */
-      }
-      /* サイドバーの基本スタイル */
-      #nav-bar {
-          position: fixed;
-          left: 0;
-          top: 0;
-          width: 250px;
-          height: 100%;
-          background: #333;
-          color: #fff;
-          transform: translateX(-100%);
-          transition: transform 0.3s ease;
-          z-index: 999;
-      }
-      #nav-bar.active {
-          transform: translateX(0);
-      }
-      .unko {
-          position: relative;
-      }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      padding: 0;
+    }
+
+    main {
+      margin-left: 250px; /* サイドバーの幅を考慮 */
+      padding: 40px 20px;
+    }
+
+    .content-container {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .edps-image {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      margin: auto;
+    }
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    #menu-toggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      cursor: pointer;
+    }
+
+    #menu-toggle div {
+      width: 30px;
+      height: 5px;
+      background: #ffffff;
+      margin: 6px 0;
+      transition: 0.3s;
+      transform: translateY(10px);
+    }
+
+    #menu-toggle.open {
+      transform: translateX(200px);
+    }
+
+    #nav-bar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background: #333;
+      color: #fff;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 999;
+    }
+
+    #nav-bar.active {
+      transform: translateX(0);
+    }
+
+    .unko {
+      position: relative;
+    }
   </style>
 </head>
 
 <body>
-<!--ここに入れろ-->
-<img src="img\EDPS-2024-11-27.png">
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13111.217642851889!2d135.6276862!3d34.7605195!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60011e69b3e60cbd%3A0xeef210369cf3dacf!2z5aSn6Ziq6Zu75rCX6YCa5L-h5aSn5a2m!5e0!3m2!1sja!2sjp!4v1717177418457!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- ハンバーガーメニュー -->
+  <div id="menu-toggle">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
-
-
-
-
-<div id="menu-toggle">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
-
-<!-- サイドバー -->
-<div class="unko">
-  <div id="nav-bar">
+  <!-- サイドバー（変更なし） -->
+  <div class="unko">
+    <div id="nav-bar">
       <div id="nav-header" class="clickable-div">
-          <a id="nav-title" href="2ndindex.html">E<i class="fab fa-codepen"></i>DPS</a>
-          <hr/>
+        <a id="nav-title" href="2ndindex.html">E<i class="fab fa-codepen"></i>DPS</a>
+        <hr />
       </div>
       <div id="nav-content">
-          <div class="nav-button clickable-div" id="gkbs">
-              <i class="fas fa-palette"></i><span>1.活動紹介</span>
-          </div>
-          <div class="nav-button clickable-div" id="nksk">
-              <i class="fas fa-images"></i><span>2.企画スケジュール</span>
-          </div>
-          <div class="nav-button clickable-div" id="acces">
-              <i class="fas fa-thumbtack"></i><span>3.アクセス</span>
-          </div>
-          <hr/>
-          <div class="nav-button clickable-div" id="project">
-              <i class="fas fa-heart"></i><span>4.プロジェクト紹介</span>
-          </div>
-          <div class="nav-button clickable-div" id="Timeline">
-              <i class="fas fa-heart"></i><span>5.タイムライン</span>
-          </div>
-          <div class="nav-button clickable-div" id="linenup">
-              <i class="fas fa-heart"></i><span>6.ラインナップ</span>
-          </div>
-          <div class="nav-button clickable-div" id="edpshub">
-              <i class="fas fa-heart"></i><span>7.EDPS HUB</span>
-          </div>
-          <hr/>
-          <div class="nav-button clickable-div" id="2ndindex">
-              <i class="fas fa-heart"></i><span>HOME</span>
-          </div>
-          <div id="nav-highlight"></div>
+        <div class="nav-button clickable-div" id="gkbs">
+          <i class="fas fa-palette"></i><span>1.活動紹介</span>
+        </div>
+        <div class="nav-button clickable-div" id="nksk">
+          <i class="fas fa-images"></i><span>2.企画スケジュール</span>
+        </div>
+        <div class="nav-button clickable-div" id="acces">
+          <i class="fas fa-thumbtack"></i><span>3.アクセス</span>
+        </div>
+        <hr />
+        <div class="nav-button clickable-div" id="project">
+          <i class="fas fa-heart"></i><span>4.プロジェクト紹介</span>
+        </div>
+        <div class="nav-button clickable-div" id="Timeline">
+          <i class="fas fa-heart"></i><span>5.タイムライン</span>
+        </div>
+        <div class="nav-button clickable-div" id="linenup">
+          <i class="fas fa-heart"></i><span>6.ラインナップ</span>
+        </div>
+        <div class="nav-button clickable-div" id="edpshub">
+          <i class="fas fa-heart"></i><span>7.EDPS HUB</span>
+        </div>
+        <hr />
+        <div class="nav-button clickable-div" id="2ndindex">
+          <i class="fas fa-heart"></i><span>HOME</span>
+        </div>
+        <div id="nav-highlight"></div>
       </div>
-      <input id="nav-footer-toggle" type="checkbox"/>
+      <input id="nav-footer-toggle" type="checkbox" />
       <div id="nav-footer">
-          <div id="nav-footer-heading">
-              <label for="nav-footer-toggle"><i class="fas fa-caret-up"></i></label>
-          </div>
-          <div id="nav-footer-content">  
-          </div>
+        <div id="nav-footer-heading">
+          <label for="nav-footer-toggle"><i class="fas fa-caret-up"></i></label>
+        </div>
+        <div id="nav-footer-content"></div>
       </div>
+    </div>
   </div>
-</div>
 
+  <!-- メイン -->
+  <main>
+    <div class="content-container">
+      <img class="edps-image" src="img/EDPS-2024-11-27.png" alt="EDPS イメージ画像">
 
-<!-- JavaScript -->
-<script>
-  const menuToggle = document.getElementById('menu-toggle');
-  const navBar = document.getElementById('nav-bar');
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13111.217642851889!2d135.6276862!3d34.7605195!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60011e69b3e60cbd%3A0xeef210369cf3dacf!2z5aSn6Ziq6Zu75rCX6YCa5L-h5aSn5a2m!5e0!3m2!1sja!2sjp!4v1717177418457!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </main>
 
-  menuToggle.addEventListener('click', () => {
+  <footer>
+    © 2025 電子計算組織研究会 (EDPS). All Rights Reserved.
+  </footer>
+
+  <!-- JS for toggle -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navBar = document.getElementById('nav-bar');
+
+    menuToggle.addEventListener('click', () => {
       navBar.classList.toggle('active');
       menuToggle.classList.toggle('open');
-  });
-  
-  document.querySelectorAll('.nav-button').forEach(button => {
+    });
+
+    document.querySelectorAll('.nav-button').forEach(button => {
       button.addEventListener('click', () => {
-          const target = button.id;
-          if (target) {
-              window.location.href = target + '.html';
-          }
+        const target = button.id;
+        if (target) {
+          window.location.href = target + '.html';
+        }
       });
-  });
-</script>
+    });
+  </script>
 
 </body>
-
-<footer>
-    <!--ここに入れろ-->
-
-</footer>
-
-
 </html>
